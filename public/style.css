@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+header {
+    background-color: #282828;
+}
+
+.navbar>.container-fluid {
+    margin: 0.2rem;
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    margin: 0rem 0.5rem;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.ai-button1 {
+    background-color: white;
+    color: black;
+    padding: 0.5rem 1.5rem !important;
+    border-radius: 0.5rem;
+}
+
+.ai-button1:hover {
+    color: black;
+}
+
+.ai-button2 {
+    text-decoration: none;
+    background-color: #820df9;
+    color: rgb(255, 255, 255);
+    padding: 0.5rem 1.5rem !important;
+    border-radius: 0.5rem;
+}
+
+.ai-button2:hover {
+    background-color: #820df9;
+    color: white;
+}
+
+footer {
+    background-color: #282828;
+    color: white;
+    padding: 1rem;
+}
+
+.footer-heading {
+    font-size: 2rem;
+}
+
+.footer-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-link-section {
+    text-align: end;
+}
+
+.footer-link-section>a {
+    text-decoration: none;
+    color: white;
+}
+
+.copyright {
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .footer-link-section {
+        text-align: start;
+    }
+}
+
+main {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.get-started-text {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.get-started-text>p {
+    font-weight: 700;
+}
+
+.get-started-image {
+    padding: 4rem;
+}
+
+.get-started-image>img {
+    border-radius: 1rem;
+    border: 1px solid black;
+    filter: drop-shadow(20px -20px 0px #820df9);
+}
+
+.middle-section {
+    background-color: #820df9;
+    padding: 4rem;
+    text-align: center;
+}
+
+@media (max-width: 650px) {
+    .get-started-text {
+        padding: 2rem;
+    }
+
+    .get-started-image {
+        padding: 2rem;
+    }
+
+    .middle-section {
+        padding: 2rem;
+    }
+}
+
+.search-section {
+    padding: 2rem;
+    background-color: #282828;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.form-control {
+    border-radius: 2rem !important;
+    padding: 0.5rem 1.5rem !important;
+}
+
+.form-label {
+    font-size: 1.5rem;
+}
+
+.listing-section {
+    overflow-y: scroll;
+    height: 80vh;
+    padding: 4rem;
+    align-items: center;
+}
+
+.listing-section::-webkit-scrollbar {
+    display: none;
+}
+
+.listing-section {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
+}
+
+.all-listing-section {
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+}
+
+.image-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img-fluid {
+    border-radius: 1.5rem;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.listing-description {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.hastag {
+    text-align: center;
+    background-color: white;
+    color: black;
+    border-radius: 1rem;
+
+}
+
+.rating-price-section {
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 650px) {
+    .listing-section {
+        padding: 2rem;
+    }
+
+    .all-listing-section {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .rating-price-section {
+        text-align: justify;
+    }
+    .img-fluid {
+        margin-bottom: 1rem;
+    }
+}
+
+.details-section {
+    padding: 4rem;
+}
+
+.details-section-img-div>img{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.types {
+    margin-top: 4rem;
+}
+
+@media (max-width: 991px) {
+    .details-section {
+        padding: 1rem;
+    }
+}
+
+.en-main-box {
+    padding: 1.5rem;
+    background-color: black;
+}
+
+.enquiry-box {
+    padding: 1.5rem;
+    background-color: #282828;
+    border-radius: 1rem;
+    border: 2px solid white;
+}
+
+.enquiry-box>.form-control {
+    border-radius: 0.5rem !important;
+}

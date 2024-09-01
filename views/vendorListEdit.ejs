@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Edit</title>
+    <style>
+        .content {
+            flex: 3;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .content section {
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            margin-bottom: 10px;
+        }
+
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .content table,
+        .content th,
+        .content td {
+            border: 1px solid #ddd;
+        }
+
+        .content th,
+        .content td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .content th {
+            background-color: #282828;
+            color: #fff;
+        }
+
+        .content button {
+            background-color: #820df9;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        .content button:hover {
+            background-color: #9a3bff;
+        }
+
+        .content input[type="text"] {
+            width: calc(25% - 10px);
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .content input[type="text"]:focus {
+            outline: none;
+            border-color: #820df9;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .content {
+                flex: 1 100%;
+            }
+
+            .content input[type="text"] {
+                width: calc(50% - 10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <section id="new-listing">
+            <h2>Edit Your Listing Here</h2>
+            <form action="http://localhost:8080/vendorlist/<%= editVendor.id %>?_method=PUT" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="vendor[name]" value="<%= editVendor.name %>" required
+                        style="width: 100%; padding: 8px; margin: 5px 0;">
+                </div>
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="vendor[city]" value="<%= editVendor.city %>" required
+                        style="width: 100%; padding: 8px; margin: 5px 0;">
+                </div>
+                <div class="form-group">
+                    <label for="state">State:</label>
+                    <input type="text" id="state" name="vendor[state]" value="<%= editVendor.state %>" required
+                        style="width: 100%; padding: 8px; margin: 5px 0;">
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="vendor[date]" value="<%= editVendor.date %>" required
+                        style="width: 100%; padding: 8px; margin: 5px 0;">
+                </div>
+                <div class="form-group">
+                    <label for="eventType">Event Type:</label>
+                    <input type="text" id="eventType" name="vendor[eventType]" value="<%= editVendor.eventType %>" required
+                        style="width: 100%; padding: 8px; margin: 5px 0;">
+                </div>
+                <div class="form-group">
+                    <label for="vendorType">Vendor Type:</label>
+                    <input type="text" id="vendorType" name="vendor[vendorType]" value="<%= editVendor.vendorType %>" required
+                        style="width: 100%; padding: 8px; margin: 5px 0;">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="vendor[description]" rows="4" required style="width: 100%; padding: 8px; margin: 5px 0;"><%= editVendor.description %></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="vendor[price]" value="<%= editVendor.price %>" required
+                        style="width: 100%; padding: 8px; margin: 5px 0;">
+                </div>
+                <div class="form-group">
+                    <label for="image">Image:</label>
+                    <input type="text" id="image" name="vendor[imageLink]" value="<%= editVendor.imageLink %>" required
+                        style="width: 100%; padding: 8px; margin: 5px 0;">
+                </div>
+                <button type="submit">Edit Now</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

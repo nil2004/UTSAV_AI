@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .admin-panel-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background-color: #282828;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            border-bottom: 1px solid #444;
+        }
+
+        .sidebar a:hover {
+            background-color: #444;
+        }
+
+        .content {
+            flex: 3;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .content section {
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            margin-bottom: 10px;
+        }
+
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .content table,
+        .content th,
+        .content td {
+            border: 1px solid #ddd;
+        }
+
+        .content th,
+        .content td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .content th {
+            background-color: #282828;
+            color: #fff;
+        }
+
+        .content button {
+            background-color: #820df9;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        .content button:hover {
+            background-color: #9a3bff;
+        }
+
+        .content input[type="text"] {
+            width: calc(25% - 10px);
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .content input[type="text"]:focus {
+            outline: none;
+            border-color: #820df9;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .content {
+                flex: 1 100%;
+            }
+
+            .content input[type="text"] {
+                width: calc(50% - 10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-panel-box">
+        <div class="container">
+            <div class="sidebar">
+                <h2>Admin Panel</h2>
+                <a href="#ratings">Check Ratings</a>
+                <a href="#listings">Check Listings</a>
+                <a href="#new-listing">Create New Listing</a>
+            </div>
+            <div class="content">
+                <section id="new-listing">
+                    <h2>Create New Listing</h2>
+                    <form action="http://localhost:8080/vendorlist/new" method="post">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="vendor[name]" required
+                                style="width: 100%; padding: 8px; margin: 5px 0;">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City:</label>
+                            <input type="text" id="city" name="vendor[city]" required
+                                style="width: 100%; padding: 8px; margin: 5px 0;">
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State:</label>
+                            <input type="text" id="state" name="vendor[state]" required
+                                style="width: 100%; padding: 8px; margin: 5px 0;">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="vendor[date]" required
+                                style="width: 100%; padding: 8px; margin: 5px 0;">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventType">Event Type:</label>
+                            <input type="text" id="eventType" name="vendor[eventType]" required
+                                style="width: 100%; padding: 8px; margin: 5px 0;">
+                        </div>
+                        <div class="form-group">
+                            <label for="vendorType">Vendor Type:</label>
+                            <input type="text" id="vendorType" name="vendor[vendorType]" required
+                                style="width: 100%; padding: 8px; margin: 5px 0;">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea id="description" name="vendor[description]" rows="4" required
+                                style="width: 100%; padding: 8px; margin: 5px 0;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="number" id="price" name="vendor[price]" required
+                                style="width: 100%; padding: 8px; margin: 5px 0;">
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image:</label>
+                            <input type="text" id="image" name="vendor[imageLink]" required
+                                style="width: 100%; padding: 8px; margin: 5px 0;">
+                        </div>
+                        <button type="submit">Create Now</button>
+                    </form>
+                </section>
+                <section id="ratings">
+                    <h2>Ratings</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Rating</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>5</td>
+                                <td><button>Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td>4</td>
+                                <td><button>Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section id="listings">
+                    <h2>Listings</h2>
+                    <div class="form-group">
+                        <input type="text" id="searchCity" placeholder="Search by city" onkeyup="searchListings()">
+                        <input type="text" id="searchState" placeholder="Search by state" onkeyup="searchListings()">
+                        <input type="text" id="searchEventType" placeholder="Search by event type"
+                            onkeyup="searchListings()">
+                        <input type="text" id="searchVendorType" placeholder="Search by vendor type"
+                            onkeyup="searchListings()">
+                    </div>
+                    <table id="listingsTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Date</th>
+                                <th>Event Type</th>
+                                <th>Vendor Type</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <% for(let vendor of allVendor) {%>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <%= vendor.name %>
+                                    </td>
+                                    <td>
+                                        <%= vendor.city %>
+                                    </td>
+                                    <td>
+                                        <%= vendor.state %>
+                                    </td>
+                                    <td>
+                                        <%= vendor.date.toString().toString().split(" ").slice(0, 4).join(" ") %></td>
+                                <td><%= vendor.eventType %></td>
+                                <td><%= vendor.vendorType %></td>
+                                <td><%= vendor.description %></td>
+                                <td>&#8377 <%= vendor.price.toLocaleString(" en-IN") %>
+                                    </td>
+                                    <td>
+                                        <form action="http://localhost:8080/vendorlist/<%= vendor.id %>/edit">
+                                            <button>Edit</button>
+                                        </form>
+                                        <form
+                                            action="http://localhost:8080/vendorlist/<%= vendor.id %>/delete?_method=DELETE"
+                                            method="post">
+                                            <button>Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <% } %>
+                    </table>
+                </section>
+            </div>
+        </div>
+
+        <script>
+            function searchListings() {
+                const searchCity = document.getElementById('searchCity').value.toLowerCase();
+                const searchState = document.getElementById('searchState').value.toLowerCase();
+                const searchEventType = document.getElementById('searchEventType').value.toLowerCase();
+                const searchVendorType = document.getElementById('searchVendorType').value.toLowerCase();
+
+                const table = document.getElementById('listingsTable');
+                const rows = table.getElementsByTagName('tr');
+
+                for (let i = 1; i < rows.length; i++) {
+                    const cells = rows[i].getElementsByTagName('td');
+                    const cityText = cells[1].textContent.toLowerCase();
+                    const stateText = cells[2].textContent.toLowerCase();
+                    const eventTypeText = cells[4].textContent.toLowerCase();
+                    const vendorTypeText = cells[5].textContent.toLowerCase();
+
+                    rows[i].style.display = (cityText.includes(searchCity) &&
+                        stateText.includes(searchState) &&
+                        eventTypeText.includes(searchEventType) &&
+                        vendorTypeText.includes(searchVendorType)) ? '' : 'none';
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

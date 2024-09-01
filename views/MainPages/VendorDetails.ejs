@@ -1,0 +1,40 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <main class="container-fluid">
+        <div class="row details-section">
+            <div class="col-lg-6 details-section-img-div">
+                <img src="<%= vendor.imageLink %>" class="img-fluid" alt="Vendor Photo">
+            </div>
+            <div class="col-lg-4">
+                <p class="fs-1">
+                    <%= vendor.name %>
+                </p>
+                <p class="fs-6">
+                    <%= vendor.city %>, <%= vendor.state %>
+                </p>
+                <p class="fs-6">Flexible Booking, All Time Available</p>
+                <p class="fs-6 listing-description">
+                    <%= vendor.description %>
+                </p>
+                <p class="fs-5">Event Date: <%= vendor.date.toString().toString().split(" ").slice(0, 4).join(" ") %></p>
+                <div class="types">
+                    <p class="fs-4 hastag">#<%= vendor.eventType %>
+                    </p>
+                    <p class="fs-4 hastag">#<%= vendor.vendorType %>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-2 rating-price-section">
+                <div>
+                    <p class="fs-6">9.8 Rating <br> 2,045 Reviews</p>
+                </div>
+                <div>
+                    <p class="fs-4">
+                        &#8377 <%= vendor.price.toLocaleString("en-IN") %>
+                    </p>
+                    <a class="btn ai-button2" href="tel:+91-8974894143">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

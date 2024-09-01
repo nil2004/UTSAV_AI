@@ -1,0 +1,90 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 search-section">
+                <p class="fs-3">Search your Vendor</p>
+                <div class="col-md-12 mb-4">
+                    <label for="validationCustom01" class="form-label">City</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="Search Vendor by City"
+                        required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-12 mb-4">
+                    <label for="validationCustom02" class="form-label">State</label>
+                    <input type="text" class="form-control" id="validationCustom02" placeholder="Search Vendor by State"
+                        required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-12 mb-4">
+                    <label for="validationCustom03" class="form-label">Event Type</label>
+                    <input type="text" class="form-control" id="validationCustom03"
+                        placeholder="Search Vendor by Event type" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid city.
+                    </div>
+                </div>
+                <div class="col-md-12 mb-4">
+                    <label for="validationCustom03" class="form-label">Vendor Type</label>
+                    <input type="text" class="form-control" id="validationCustom03"
+                        placeholder="Search Vendor by Vendor type" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid city.
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 listing-section">
+                <div class="row">
+                    <% for (let vendor of allVendor) {%>
+                        <div class="col-lg-12 row all-listing-section mb-4">
+                            <div class="col-lg-9 row">
+                                <div class="col-lg-6 image-div">
+                                    <img src="<%= vendor.imageLink %>" class="img-fluid" alt="Vendor Photo" width="100%"
+                                        height="100%">
+                                </div>
+                                <div class="col-lg-6">
+                                    <p class="fs-1">
+                                        <%= vendor.name %>
+                                    </p>
+                                    <p class="fs-6">
+                                        <%= vendor.city %>, <%= vendor.state %>
+                                    </p>
+                                    <p class="fs-6">Flexible Booking, All Time Available</p>
+                                    <p class="fs-6 listing-description">
+                                        <%= vendor.description %>
+                                    </p>
+                                    <div>
+                                        <p class="fs-4 hastag">#<%= vendor.eventType %>
+                                        </p>
+                                        <p class="fs-4 hastag">#<%= vendor.vendorType %>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3 rating-price-section">
+                                <div>
+                                    <p class="fs-6">9.8 Rating <br> 2,045 Reviews</p>
+                                </div>
+                                <div>
+                                    <p class="fs-4">
+                                        &#8377 <%= vendor.price.toLocaleString("en-IN") %>
+                                    </p>
+                                    <form action="http://localhost:8080/vendorlist/<%= vendor.id %>/show" method="get">
+                                        <button class="btn ai-button2">Details</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
