@@ -18,7 +18,7 @@ const ExpressError = require("./utils/ExpressError.js");
 const {saveRedirectUrl, isLoggedin} = require("./middlewares.js")
 const Enquiry = require("./DatabaseSchema/EnquieySchema.js");
 
-const port = 8080;
+const port = 5500;
 
 //Middle Wares
 app.set("view engine", "ejs");
